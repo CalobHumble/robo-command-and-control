@@ -18,3 +18,8 @@ let controller = {
   }
 };
 
+// First, lets detect if a gamepad has been connected
+window.addEventListener('gamepadconnected', function (ev) {
+  console.log(ev.gamepad);
+});
+
