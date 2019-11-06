@@ -8,6 +8,8 @@ This demo will serve as a jumping off pointer for building a command-and-control
 
 1. NodeJS >= 12.13 LTS [Link](https://nodejs.org/en/)
 2. A USB or Bluetooth controller (e.g. Dualshock 4 controller)
+3. An arduino with the Firmata firmare [Link](https://github.com/firmata/arduino)
+4. Serial Communication Permission on host machine (root if on pi)
 
 ## Installation
 
@@ -18,5 +20,5 @@ npm install
 ## Deployment
 
 ```bash
-npm run server
+sudo npm run server
 ```
