@@ -18,6 +18,9 @@ var controller = {
   }
 };
 
+// Connect to the websocket.
+var socket = io();
+
 
 // First, let start a loop that detects a controller, then reads it state, and stores it
 // in our above object.
@@ -38,6 +41,7 @@ function gamepadReadLoop() {
     controller.buttons.triangle = gamepad.buttons[2].pressed;
     controller.buttons.right_trigger = gamepad.buttons[7].pressed;
     updateView(); // Lets update our html page to show which buttons have been pressed;
+    updateServer(); // Also, send new data to the server.
   }
 }
 
@@ -48,6 +52,10 @@ function updateView() {
   document.getElementById('triangle').disabled = controller.buttons.triangle;
   document.getElementById('right_trigger').disabled = controller.buttons.right_trigger;
 }
+
+function updateServer() {
+  socket.emit('controller-update', controller);
+};
 
 // Now lets start our loop functions
 
