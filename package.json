@@ -4,7 +4,11 @@
   "description": "A remote command and control system for robots",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CalobHumble/robo-command-and-control.git"
   },
   "author": "Calob Humble <cshumble@protonmail.com>",
   "license": "MIT",
