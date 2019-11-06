@@ -40,6 +40,8 @@ function gamepadReadLoop() {
     controller.buttons.square = gamepad.buttons[3].pressed;
     controller.buttons.triangle = gamepad.buttons[2].pressed;
     controller.buttons.right_trigger = gamepad.buttons[7].pressed;
+    controller.joysticks.right.x = gamepad.axes[3];
+    controller.joysticks.right.y = gamepad.axes[4];
     updateView(); // Lets update our html page to show which buttons have been pressed;
     updateServer(); // Also, send new data to the server.
   }
@@ -51,6 +53,8 @@ function updateView() {
   document.getElementById('square').disabled = controller.buttons.square;
   document.getElementById('triangle').disabled = controller.buttons.triangle;
   document.getElementById('right_trigger').disabled = controller.buttons.right_trigger;
+  document.getElementById('right_joystick_x').innerText = `XPostion: ${controller.joysticks.right.x}`;
+  document.getElementById('right_joystick_y').innerText = `YPostion: ${controller.joysticks.right.y}`;
 }
 
 function updateServer() {
