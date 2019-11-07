@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Controller Demo</title>
+  <link href="./client.css" rel="stylesheet">
 </head>
 <body>
   <button id="x">x</button>
@@ -9,8 +10,9 @@
   <button id="square">◻</button>
   <button id="triangle">△</button>
   <button id="right_trigger">RTrigger</button>
-  <span id="right_joystick_x"></span>
-  <span id="right_joystick_y"></span>
+  <div class="joystick" id="right_joystick">
+    <div class="joystick-indicator"></div>
+  </div>
   <script src="/socket.io/socket.io.js"></script>
   <script src="./client.js"></script>
 </body>

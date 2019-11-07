@@ -5,7 +5,7 @@ var controller = {
     x: false,
     circle: false,
     square: false,
-    tiangle: false,
+    triangle: false,
     right_trigger: false
   },
   // While our buttons can only be "pressed" or "not pressed" we need to store our
@@ -53,8 +53,8 @@ function updateView() {
   document.getElementById('square').disabled = controller.buttons.square;
   document.getElementById('triangle').disabled = controller.buttons.triangle;
   document.getElementById('right_trigger').disabled = controller.buttons.right_trigger;
-  document.getElementById('right_joystick_x').innerText = `XPostion: ${controller.joysticks.right.x}`;
-  document.getElementById('right_joystick_y').innerText = `YPostion: ${controller.joysticks.right.y}`;
+  document.getElementById('right_joystick').children[0].style.top = (43+(controller.joysticks.right.y*43))+'px';
+  document.getElementById('right_joystick').children[0].style.left = (43+(controller.joysticks.right.x*43))+'px';
 }
 
 function updateServer() {
@@ -63,5 +63,5 @@ function updateServer() {
 
 // Now lets start our loop functions
 
-let interval = setInterval(gamepadReadLoop, 200);
+let interval = setInterval(gamepadReadLoop, 100);
 

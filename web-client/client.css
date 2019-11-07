@@ -1,0 +1,18 @@
+.joystick {
+  position: relative;
+  width: 94px;
+  height: 94px;
+  border-radius: 100px;
+  border: 3px solid black;
+}
+
+.joystick > .joystick-indicator {
+  position: relative;
+  background-color: gray;
+  border: 2px solid black;
+  width: 6px;
+  height: 6px;
+  border-radius: 10px;
+  left: 43px;
+  top: 43px;
+}
