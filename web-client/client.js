@@ -11,6 +11,10 @@ var controller = {
   // While our buttons can only be "pressed" or "not pressed" we need to store our
   // joy sticks as a vector, split into x and y directions, so we can derive it's location
   joysticks: {
+    left: {
+      x: 0,
+      y: 0
+    },
     right: {
       x: 0,
       y: 0
@@ -40,6 +44,8 @@ function gamepadReadLoop() {
     controller.buttons.square = gamepad.buttons[3].pressed;
     controller.buttons.triangle = gamepad.buttons[2].pressed;
     controller.buttons.right_trigger = gamepad.buttons[7].pressed;
+    controller.joysticks.left.x = gamepad.axes[0];
+    controller.joysticks.left.y = gamepad.axes[1];
     controller.joysticks.right.x = gamepad.axes[3];
     controller.joysticks.right.y = gamepad.axes[4];
     updateView(); // Lets update our html page to show which buttons have been pressed;
@@ -53,8 +59,10 @@ function updateView() {
   document.getElementById('square').disabled = controller.buttons.square;
   document.getElementById('triangle').disabled = controller.buttons.triangle;
   document.getElementById('right_trigger').disabled = controller.buttons.right_trigger;
-  document.getElementById('right_joystick').children[0].style.top = (43+(controller.joysticks.right.y*43))+'px';
-  document.getElementById('right_joystick').children[0].style.left = (43+(controller.joysticks.right.x*43))+'px';
+  document.getElementById('left_joystick').children[0].style.top = (30+(controller.joysticks.left.y*30))+'px';
+  document.getElementById('left_joystick').children[0].style.left = (30+(controller.joysticks.left.x*30))+'px';
+  document.getElementById('right_joystick').children[0].style.top = (30+(controller.joysticks.right.y*30))+'px';
+  document.getElementById('right_joystick').children[0].style.left = (30+(controller.joysticks.right.x*30))+'px';
 }
 
 function updateServer() {
